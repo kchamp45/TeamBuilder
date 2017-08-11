@@ -1,0 +1,18 @@
+
+
+   <h1>Add a new member!</h1>
+
+   <form action="/members/new" method="post">
+
+       <div class="form-control">
+         <label for="memberName">Enter a team member name</label>
+         <input id="memberName" name="memberName" type="text">
+       </div>
+
+       <button type="submit" class="btn btn-default">Add!</button>
+
+   </form>
+
+{{/partial}}
+
+{{> layout.hbs}}

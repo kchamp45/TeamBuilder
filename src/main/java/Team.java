@@ -12,10 +12,11 @@ public class Team {
     private static ArrayList<Team> instances = new ArrayList<>();
     private LocalDateTime createdAt;
     private int id;
+
     private String memberName;
     private ArrayList<String> members;
 
-    public Team (String name) {
+    public Team (String name, String description) {
         this.name = name;
         this.description = description;
         this.createdAt = LocalDateTime.now();
@@ -61,22 +62,23 @@ public class Team {
     public static Team findById(int id) {
         return instances.get(id-1);
     }
-//
-    public void update(String name) {
-        this.name = name;
-    }
-//
-//    public void deletePost(){
-//        instances.remove(id-1); //same reason
-//    }
-//    public static ArrayList<Team> getInstances() {
-//        return instances;
-//    }
-//
-//
-//
-//
 
+    public void update(String name, String description) {
+        this.name = name;
+        this.description = description;
+    }
+
+    public void deleteTeam(){
+        instances.remove(id-1); //same reason
+    }
+
+    public String getMemberName() {
+        return memberName;
+    }
+
+    public static ArrayList<Team> getInstances() {
+        return instances;
+    }
 
 
 }

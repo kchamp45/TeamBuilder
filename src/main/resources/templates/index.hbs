@@ -1,0 +1,22 @@
+{{#partial "content"}}
+
+    <h1>Teams!</h1>
+
+    {{#if teams}}
+        {{#each teams }}
+         <div class="emphasized well">
+            <p>Team {{id}}:</p>
+               <ul>
+                   <li>{{name}}</li>
+                   <li>{{description}}</li>
+                   <li>Created At: {{createdAt}}</li>
+               </ul>
+            <p>{{ name }} <a href="/teams/{{id}}">read more...</a></p>
+         </div>
+        {{/each}}
+    {{else}}
+        <p>No team added!</p>
+    {{/if}}
+{{/partial}}
+
+{{> layout.hbs}}
