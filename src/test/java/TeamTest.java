@@ -15,16 +15,17 @@ public class TeamTest {
 //        Team.clearAllTeams();
     }
     @Test
-    public void NewPostObjectGetsCorrectlyCreated_true() throws Exception {
+    public void NewTeamObjectGetsCorrectlyCreated_true() throws Exception {
         Team team = new Team ("Red");
         assertEquals(true, team instanceof Team);
     }
 
-//    @Test
-//    public void getPublished_isFalseAfterInstantiation_false() throws Exception {
-//        Post myPost = new Post("Day 1: Intro");
-//        assertEquals(false, myPost.getPublished());
-//    }
+    @Test
+    public void TeamInstantiatesWithValue_true() throws Exception {
+        Team team = new Team("Red");
+        assertEquals("Red", team.getName());
+    }
+//
 //    @Test
 //    public void getCreatedAt_instantiatesWithCurrentTime_today() throws Exception{
 //        Post myPost =  setupNewPost(); //see below
