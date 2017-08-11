@@ -65,32 +65,30 @@ public class TeamTest {
         Team team2 = new Team("Blue");
         assertEquals(2, Team.getAll().size());
     }
+
+    @Test
+    public void getId_teamsInstantiateWithAnID_1() throws Exception{
+        Team.clearAllTeams();
+        Team team = new Team("Red");
+        assertEquals(1, team.getId());
+    }
 //
-//
-//    //
 //    @Test
-//    public void getId_postsInstantiateWithAnID_1() throws Exception{
-//        Post.clearAllPosts();  // Remember, the test will fail without this line! We need to empty leftover Posts from previous tests!
-//        Post myPost = new Post("Day 1: Intro");
-//        assertEquals(1, myPost.getId());
+//    public void findReturnsCorrectTeam() throws Exception {
+//        Team post = setupNewTeam();
+//        assertEquals(1, Team.findById(post.getId()).getId());
 //    }
 //
 //    @Test
-//    public void findReturnsCorrectPost() throws Exception {
-//        Post post = setupNewPost();
-//        assertEquals(1, Post.findById(post.getId()).getId());
+//    public void findReturnsCorrectTeamWhenMoreThanOneTeamExists() throws Exception {
+//        Team post = setupNewTeam();
+//        Team otherTeam = new Team("How to pair successfully");
+//        assertEquals(2, Team.findById(otherTeam.getId()).getId());
 //    }
 //
 //    @Test
-//    public void findReturnsCorrectPostWhenMoreThanOnePostExists() throws Exception {
-//        Post post = setupNewPost();
-//        Post otherPost = new Post("How to pair successfully");
-//        assertEquals(2, Post.findById(otherPost.getId()).getId());
-//    }
-//
-//    @Test
-//    public void updateChangesPostContent() throws Exception {
-//        Post post = setupNewPost();
+//    public void updateChangesTeamContent() throws Exception {
+//        Team post = setupNewTeam();
 //        String formerContent = post.getContent();
 //        LocalDateTime formerDate = post.getCreatedAt();
 //        int formerId = post.getId();
@@ -103,24 +101,24 @@ public class TeamTest {
 //    }
 //
 //    @Test
-//    public void PostInstantiatesWithContent_true() throws Exception {
-//        Post post = new Post("Day 1: Intro");
+//    public void TeamInstantiatesWithContent_true() throws Exception {
+//        Team post = new Team("Day 1: Intro");
 //        assertEquals("Day 1: Intro", post.getContent());
 //
 //    }
 //    @Test
-//    public void AllPostsAreCorrectlyReturned_true() {
-//        Post post = new Post("Day 1: Intro");
-//        Post otherPost = new Post ("How to pair successfully");
-//        assertEquals(2, Post.getAll().size());
+//    public void AllTeamsAreCorrectlyReturned_true() {
+//        Team post = new Team("Day 1: Intro");
+//        Team otherTeam = new Team ("How to pair successfully");
+//        assertEquals(2, Team.getAll().size());
 //    }
 //
 //    @Test
-//    public void AllPostsContainsAllPosts_true() {
-//        Post post = new Post("Day 1: Intro");
-//        Post otherPost = new Post ("How to pair successfully");
-//        assertTrue(Post.getAll().contains(post));
-//        assertTrue(Post.getAll().contains(otherPost));
+//    public void AllTeamsContainsAllTeams_true() {
+//        Team post = new Team("Day 1: Intro");
+//        Team otherTeam = new Team ("How to pair successfully");
+//        assertTrue(Team.getAll().contains(post));
+//        assertTrue(Team.getAll().contains(otherTeam));
 //    }
 
 

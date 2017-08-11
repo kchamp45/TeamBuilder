@@ -52,17 +52,18 @@ public class Team {
 
     public static ArrayList<Team> getAll(){
         return instances;
-}
-//
+    }
+
+    public int getId() {
+        return id;
+    }
 //    public static ArrayList<Team> getInstances() {
 //        return instances;
 //    }
 //
 //
 //
-//    public int getId() {
-//        return id;
-//    }
+//
 
 
 
