@@ -57,6 +57,18 @@ public class Team {
     public int getId() {
         return id;
     }
+
+    public static Team findById(int id) {
+        return instances.get(id-1);
+    }
+//
+//    public void update(String content) {
+//        this.content = content;
+//    }
+//
+//    public void deletePost(){
+//        instances.remove(id-1); //same reason
+//    }
 //    public static ArrayList<Team> getInstances() {
 //        return instances;
 //    }

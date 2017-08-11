@@ -73,11 +73,11 @@ public class TeamTest {
         assertEquals(1, team.getId());
     }
 //
-//    @Test
-//    public void findReturnsCorrectTeam() throws Exception {
-//        Team post = setupNewTeam();
-//        assertEquals(1, Team.findById(post.getId()).getId());
-//    }
+    @Test
+    public void findReturnsCorrectTeam() throws Exception {
+        Team team = new Team("Red");
+        assertEquals(1, Team.findById(team.getId()).getId());
+    }
 //
 //    @Test
 //    public void findReturnsCorrectTeamWhenMoreThanOneTeamExists() throws Exception {
