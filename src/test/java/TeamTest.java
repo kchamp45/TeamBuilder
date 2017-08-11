@@ -85,7 +85,7 @@ public class TeamTest {
         Team team2 = new Team("Blue");
         assertEquals(2, Team.findById(team2.getId()).getId());
     }
-//
+
     @Test
     public void updateChangesTeamContent() throws Exception {
         Team team = new Team("Red");
@@ -99,27 +99,13 @@ public class TeamTest {
         assertEquals(formerDate, team.getCreatedAt());
         assertNotEquals(formerName, team.getName());
     }
-//
-//    @Test
-//    public void TeamInstantiatesWithContent_true() throws Exception {
-//        Team post = new Team("Day 1: Intro");
-//        assertEquals("Day 1: Intro", post.getContent());
-//
-//    }
-//    @Test
-//    public void AllTeamsAreCorrectlyReturned_true() {
-//        Team post = new Team("Day 1: Intro");
-//        Team otherTeam = new Team ("How to pair successfully");
-//        assertEquals(2, Team.getAll().size());
-//    }
-//
-//    @Test
-//    public void AllTeamsContainsAllTeams_true() {
-//        Team post = new Team("Day 1: Intro");
-//        Team otherTeam = new Team ("How to pair successfully");
-//        assertTrue(Team.getAll().contains(post));
-//        assertTrue(Team.getAll().contains(otherTeam));
-//    }
 
-
+   @Test
+    public void deleteAllTeamsDeletesAllTeams() throws Exception {
+       Team team = new Team("Red");
+       Team team2 = new Team("Blue");
+       Team.clearAllTeams();
+       assertEquals(0, Team.getAll().size());
     }
+
+}
