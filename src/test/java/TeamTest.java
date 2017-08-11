@@ -2,6 +2,9 @@ import org.junit.After;
 import org.junit.Before;
 import static org.junit.Assert.*;
 import org.junit.Test;
+
+import java.util.ArrayList;
+
 /**
  * Created by Guest on 8/11/17.
  */
@@ -25,6 +28,21 @@ public class TeamTest {
         Team team = new Team("Red");
         assertEquals("Red", team.getName());
     }
+
+    @Test
+    public void CanAddTeamMember_Perry() throws Exception {
+        Team team = new Team("Red");
+        ArrayList expectedOutput = new ArrayList<String>();
+        assertEquals(expectedOutput, team.addMember("Perry"));
+    }
+
+//
+// @Test
+//    public void AllTeamsAreCorrectlyReturned_true() {
+//        Team team = new Team ("Red");
+//        Team team2 = new team ("Red");
+//        assertEquals(2, Team.getAll().size());
+//    }
 //
 //    @Test
 //    public void getCreatedAt_instantiatesWithCurrentTime_today() throws Exception{

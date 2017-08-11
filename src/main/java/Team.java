@@ -1,5 +1,6 @@
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Guest on 8/11/17.
@@ -11,6 +12,8 @@ public class Team {
     private static ArrayList<Team> instances = new ArrayList<>();
     private LocalDateTime createdAt;
     private int id;
+    private String memberName;
+    private ArrayList<String> members;
 
     public Team (String name) {
         this.name = name;
@@ -18,6 +21,8 @@ public class Team {
         this.createdAt = LocalDateTime.now();
         instances.add(this);
         this.id = instances.size();
+        this.memberName = memberName;
+        this.members = new ArrayList<String>();
     }
 
     public String getName() {
@@ -28,17 +33,27 @@ public class Team {
         return description;
     }
 
-    public static ArrayList<Team> getInstances() {
-        return instances;
+    public ArrayList<String> addMember(String memberName) {
+        members.add(memberName);
+        return members;
     }
 
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    public int getId() {
-        return id;
-    }
+//    }public ArrayList<String> getMembers(){
+//        return members;
+//    }
+//    }
+//
+//    public static ArrayList<Team> getInstances() {
+//        return instances;
+//    }
+//
+//    public LocalDateTime getCreatedAt() {
+//        return createdAt;
+//    }
+//
+//    public int getId() {
+//        return id;
+//    }
 
 
 
