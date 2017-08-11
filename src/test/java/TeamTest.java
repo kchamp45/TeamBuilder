@@ -86,19 +86,19 @@ public class TeamTest {
         assertEquals(2, Team.findById(team2.getId()).getId());
     }
 //
-//    @Test
-//    public void updateChangesTeamContent() throws Exception {
-//        Team post = setupNewTeam();
-//        String formerContent = post.getContent();
-//        LocalDateTime formerDate = post.getCreatedAt();
-//        int formerId = post.getId();
-//
-//        post.update("Android: Day 40");
-//
-//        assertEquals(formerId, post.getId());
-//        assertEquals(formerDate, post.getCreatedAt());
-//        assertNotEquals(formerContent, post.getContent());
-//    }
+    @Test
+    public void updateChangesTeamContent() throws Exception {
+        Team team = new Team("Red");
+        String formerName = team.getName();
+        LocalDateTime formerDate = team.getCreatedAt();
+        int formerId = team.getId();
+
+        team.update("Yellow");
+
+        assertEquals(formerId, team.getId());
+        assertEquals(formerDate, team.getCreatedAt());
+        assertNotEquals(formerName, team.getName());
+    }
 //
 //    @Test
 //    public void TeamInstantiatesWithContent_true() throws Exception {

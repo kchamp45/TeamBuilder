@@ -62,9 +62,9 @@ public class Team {
         return instances.get(id-1);
     }
 //
-//    public void update(String content) {
-//        this.content = content;
-//    }
+    public void update(String name) {
+        this.name = name;
+    }
 //
 //    public void deletePost(){
 //        instances.remove(id-1); //same reason
