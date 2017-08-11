@@ -59,12 +59,12 @@ public class TeamTest {
         assertEquals(0,Team.getAll().size());
     }
 
-//    @Test
-//    public void AllTeamsAreCorrectlyReturned_true() {
-//        Team team = new Team("Red");
-//        Team team2 = new Team("Blue");
-//        assertEquals(2, Team.getAll().size());
-//    }
+    @Test
+    public void AllTeamsAreCorrectlyReturned_true() {
+        Team team = new Team("Red");
+        Team team2 = new Team("Blue");
+        assertEquals(2, Team.getAll().size());
+    }
 //
 //
 //    //
