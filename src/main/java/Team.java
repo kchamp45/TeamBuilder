@@ -5,6 +5,7 @@ import java.util.ArrayList;
  * Created by Guest on 8/11/17.
  */
 public class Team {
+
     private String name;
     private String description;
     private static ArrayList<Team> instances = new ArrayList<>();
@@ -18,4 +19,27 @@ public class Team {
         instances.add(this);
         this.id = instances.size();
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public static ArrayList<Team> getInstances() {
+        return instances;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+
+
 }
