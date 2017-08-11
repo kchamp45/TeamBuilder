@@ -45,7 +45,14 @@ public class Team {
     public LocalDateTime getCreatedAt() {
         return createdAt;
     }
-//
+
+    public static void clearAllTeams(){
+        instances.clear();
+    }
+
+    public static ArrayList<Team> getAll(){
+        return instances;
+}
 //
 //    public static ArrayList<Team> getInstances() {
 //        return instances;

@@ -16,7 +16,7 @@ public class TeamTest {
 
     @After
     public void tearDown() throws Exception {
-//        Team.clearAllTeams();
+        Team.clearAllTeams();
     }
     @Test
     public void NewTeamObjectGetsCorrectlyCreated_true() throws Exception {
@@ -50,20 +50,24 @@ public class TeamTest {
         Team team =  new Team("Red");
         assertEquals(LocalDateTime.now().getDayOfWeek(), team.getCreatedAt().getDayOfWeek());
     }
-////
-// @Test
-//    public void AllTeamsAreCorrectlyReturned_true() {
-//        Team team = new Team ("Red");
-//        Team team2 = new team ("Red");
-//        assertEquals(2, Team.getAll().size());
-////    }
-//
 
-//
-//    public Post setupNewPost(){
-//        return new Post("Day 1: Intro");
+    @Test
+    public void clearAllTeams_checkIfClearsData_0() throws Exception {
+        Team backpacking = new Team("Red");
+        Team otherBackpacking = new Team ("Blue");
+        Team.clearAllTeams();
+        assertEquals(0,Team.getAll().size());
+    }
+
+//    @Test
+//    public void AllTeamsAreCorrectlyReturned_true() {
+//        Team team = new Team("Red");
+//        Team team2 = new Team("Blue");
+//        assertEquals(2, Team.getAll().size());
 //    }
 //
+//
+//    //
 //    @Test
 //    public void getId_postsInstantiateWithAnID_1() throws Exception{
 //        Post.clearAllPosts();  // Remember, the test will fail without this line! We need to empty leftover Posts from previous tests!
@@ -120,4 +124,4 @@ public class TeamTest {
 //    }
 
 
-}
+    }
