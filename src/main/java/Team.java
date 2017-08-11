@@ -41,15 +41,17 @@ public class Team {
     public ArrayList<String> getMembers(){
         return members;
     }
-//    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+//
 //
 //    public static ArrayList<Team> getInstances() {
 //        return instances;
 //    }
 //
-//    public LocalDateTime getCreatedAt() {
-//        return createdAt;
-//    }
+//
 //
 //    public int getId() {
 //        return id;

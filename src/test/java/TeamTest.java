@@ -3,6 +3,7 @@ import org.junit.Before;
 import static org.junit.Assert.*;
 import org.junit.Test;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 /**
@@ -33,6 +34,7 @@ public class TeamTest {
     public void CanAddTeamMember_Perry() throws Exception {
         Team team = new Team("Red");
         ArrayList expectedOutput = new ArrayList<String>();
+        expectedOutput.add("Perry");
         assertEquals(expectedOutput, team.addMember("Perry"));
     }
 
@@ -43,19 +45,20 @@ public class TeamTest {
         assertEquals(expectedOutput, team.getMembers());
     }
 
-//
+    @Test
+    public void getCreatedAt_instantiatesWithCurrentTime_today() throws Exception {
+        Team team =  new Team("Red");
+        assertEquals(LocalDateTime.now().getDayOfWeek(), team.getCreatedAt().getDayOfWeek());
+    }
+////
 // @Test
 //    public void AllTeamsAreCorrectlyReturned_true() {
 //        Team team = new Team ("Red");
 //        Team team2 = new team ("Red");
 //        assertEquals(2, Team.getAll().size());
-//    }
+////    }
 //
-//    @Test
-//    public void getCreatedAt_instantiatesWithCurrentTime_today() throws Exception{
-//        Post myPost =  setupNewPost(); //see below
-//        assertEquals(LocalDateTime.now().getDayOfWeek(), myPost.getCreatedAt().getDayOfWeek());
-//    }
+
 //
 //    public Post setupNewPost(){
 //        return new Post("Day 1: Intro");
