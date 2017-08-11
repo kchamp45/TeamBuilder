@@ -13,6 +13,13 @@ public class App {
     public static void main(String[] args) {
         staticFileLocation("/public");
 
+        get("/", (request, response) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+            ArrayList<Team> teams = Team.getAll();
+            model.put("teams", teams);
+            return new ModelAndView(model, "index.hbs");
+        }, new HandlebarsTemplateEngine());
+
         get("/teams/new", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
             return new ModelAndView(model, "team-form.hbs");
@@ -22,24 +29,11 @@ public class App {
             Map<String, Object> model = new HashMap<String, Object>();
             String newName = request.queryParams("name");
             String newDescription = request.queryParams("description");
-            Team newTeam = new Team(newName, newDescription);
-            model.put("teams", newTeam);
-            return new ModelAndView(model, "success.hbs");
-        }, new HandlebarsTemplateEngine());
-
-        get("/members/new", (req, res) -> {
-            Map<String, Object> model = new HashMap<>();
-            return new ModelAndView(model, "member-form.hbs");
-        }, new HandlebarsTemplateEngine());
-
-        post("/members/new", (request, response) -> { //URL to add member on POST route
-            Map<String, Object> model = new HashMap<String, Object>();
-            String newName = request.queryParams("name");
-            String newDescription = request.queryParams("description");
-            Team newTeam = new Team(newName, newDescription);
-            String newMemberName = request.queryParams("memberName");
-            ArrayList<String>members = newTeam.addMember(newMemberName);
-            model.put("members", members);
+            String newMember = request.queryParams("memberName");
+            String newMember2 = request.queryParams("memberName2");
+            Team team = new Team(newName, newDescription);
+            team.addMember(newMember);
+            team.addMember(newMember2);
             return new ModelAndView(model, "success.hbs");
         }, new HandlebarsTemplateEngine());
 
@@ -74,9 +68,8 @@ public class App {
 
         post("/teams/:id/update", (req, res) -> {
             Map<String, Object> model = new HashMap<String, Object>();
-            String newName = request.queryParams("name");
-            String newDescription = request.queryParams("description");
-            Team newTeam = new Team(newName, newDescription);
+            String newName = req.queryParams("name");
+            String newDescription = req.queryParams("description");
             int idOfTeamToEdit = Integer.parseInt(req.params("id"));
             Team editTeam = Team.findById(idOfTeamToEdit);
             editTeam.update(newName, newDescription);

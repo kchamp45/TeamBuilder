@@ -2,19 +2,13 @@
 
  <div class="emphasized well">
 
-   <p>Team:</p>
+   <p>Team {{id}}:</p>
    <ul>
-       <li>{{name}}</li>
-       <li>{{description}}</li>
-       <li>Created At: {{place.createdAt}}</li>
+       <li>Team name: {{team.name}}</li>
+       <li>Description: {{team.description}}</li>
+       <li>Created At: {{team.createdAt}}</li>
+       <li>Team members: {{team.members}}</li>
    </ul>
-
-   <p>Members:</p>
-   {{#if members}}
-       {{#each members}}
-          <ul>
-              <li>{{memberName}}</li>
-          </ul>
 
    <p>
        <a href="/teams/{{team.id}}/update">Edit this entry</a>
