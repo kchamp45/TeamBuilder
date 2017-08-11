@@ -38,9 +38,9 @@ public class Team {
         return members;
     }
 
-//    }public ArrayList<String> getMembers(){
-//        return members;
-//    }
+    public ArrayList<String> getMembers(){
+        return members;
+    }
 //    }
 //
 //    public static ArrayList<Team> getInstances() {

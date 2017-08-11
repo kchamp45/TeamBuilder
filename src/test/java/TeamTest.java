@@ -36,6 +36,13 @@ public class TeamTest {
         assertEquals(expectedOutput, team.addMember("Perry"));
     }
 
+    @Test
+    public void CanRetrieveAllTeamMembers() throws Exception {
+        Team team = new Team("Red");
+        ArrayList expectedOutput = new ArrayList<String>();
+        assertEquals(expectedOutput, team.getMembers());
+    }
+
 //
 // @Test
 //    public void AllTeamsAreCorrectlyReturned_true() {
