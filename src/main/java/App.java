@@ -25,6 +25,11 @@ public class App {
             return new ModelAndView(model, "team-form.hbs");
         }, new HandlebarsTemplateEngine());
 
+        get("/weekend", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            return new ModelAndView(model, "weekend.hbs");
+        }, new HandlebarsTemplateEngine());
+
         post("/teams/new", (request, response) -> { //URL to make new team on POST route
             Map<String, Object> model = new HashMap<String, Object>();
             String newName = request.queryParams("name");
@@ -56,6 +61,20 @@ public class App {
             Team foundTeam = Team.findById(idOfTeamToFind); //use it to find team
             model.put("team", foundTeam); //add it to model for template to display
             return new ModelAndView(model, "team-details.hbs"); //individual team page.
+        }, new HandlebarsTemplateEngine());
+
+        get("/member/new", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            return new ModelAndView(model, "member-form.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        post("/member/new", (req, res) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+            String veryNew = req.queryParams("addName");
+            int idOfTeamToEdit = Integer.parseInt(req.params("id"));
+            Team editTeam = Team.findById(idOfTeamToEdit);
+            editTeam.addMember(veryNew);
+            return new ModelAndView(model, "success.hbs");
         }, new HandlebarsTemplateEngine());
 
         get("/teams/:id/update", (req, res) -> {

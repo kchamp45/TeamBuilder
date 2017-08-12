@@ -1,0 +1,18 @@
+{{#partial "content"}}
+
+<h1>Add a member!</h1>
+
+<form action="/member/new" method="post">
+
+    <div class="form-control">
+       <label for="addName">Add a member name</label>
+       <input id="addName" name="addName" type="text">
+    </div>
+
+    <button type="submit" class="btn btn-default">Add!</button>
+
+ </form>
+
+{{/partial}}
+
+{{> layout.hbs}}
