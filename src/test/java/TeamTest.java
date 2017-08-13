@@ -68,6 +68,12 @@ public class TeamTest {
     }
 
     @Test
+    public void CanFindTeamByName_team(){
+        Team team = new Team("Red", "We hack all day");
+        assertEquals(team, team.findTeam("Red"));
+
+    }
+    @Test
     public void getId_teamsInstantiateWithAnID_1() throws Exception{
         Team.clearAllTeams();
         Team team = new Team("Red", "We hack all day");

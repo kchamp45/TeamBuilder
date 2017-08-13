@@ -20,10 +20,10 @@ public class Team {
         this.name = name;
         this.description = description;
         this.createdAt = LocalDateTime.now();
+        this.members = new ArrayList<String>();
         instances.add(this);
         this.id = instances.size();
         this.memberName = memberName;
-        this.members = new ArrayList<String>();
     }
 
     public String getName() {
@@ -35,7 +35,7 @@ public class Team {
     }
 
     public ArrayList<String> addMember(String memberName) {
-        members.add(memberName);
+        this.members.add(memberName);
         return members;
     }
 
@@ -80,5 +80,15 @@ public class Team {
         return instances;
     }
 
+    public static Team findTeam(String teamName) {
+        Team aTeam = null;
+        for (Team team: instances) {
+            String aName = team.getName();
+            if(aName.equals(teamName)) {
+                aTeam = team;
+            }
+        }
+        return aTeam;
+    }
 
 }

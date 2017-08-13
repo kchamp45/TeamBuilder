@@ -1,9 +1,7 @@
 /**
  * Created by Kimberly Lu on 8/11/17.
  */
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
@@ -34,11 +32,11 @@ public class App {
             Map<String, Object> model = new HashMap<String, Object>();
             String newName = request.queryParams("name");
             String newDescription = request.queryParams("description");
-            String newMember = request.queryParams("memberName");
-            String newMember2 = request.queryParams("memberName2");
+            String newOne = request.queryParams("memberName");
+            String newTwo = request.queryParams("memberName2");
             Team team = new Team(newName, newDescription);
-            team.addMember(newMember);
-            team.addMember(newMember2);
+            team.addMember(newOne);
+            team.addMember(newTwo);
             return new ModelAndView(model, "success.hbs");
         }, new HandlebarsTemplateEngine());
 
@@ -63,17 +61,18 @@ public class App {
             return new ModelAndView(model, "team-details.hbs"); //individual team page.
         }, new HandlebarsTemplateEngine());
 
-        get("/member/new", (req, res) -> {
+        get("/teams/:id/addMember", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
             return new ModelAndView(model, "member-form.hbs");
         }, new HandlebarsTemplateEngine());
 
-        post("/member/new", (req, res) -> {
-            Map<String, Object> model = new HashMap<String, Object>();
-            String veryNew = req.queryParams("addName");
-            int idOfTeamToEdit = Integer.parseInt(req.params("id"));
-            Team editTeam = Team.findById(idOfTeamToEdit);
-            editTeam.addMember(veryNew);
+        post("member/new", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            String teamName = req.queryParams("name");
+            String newThree = req.queryParams("memberName3");
+            Team editTeam = Team.findTeam(teamName);
+            if (editTeam !=null)
+                editTeam.addMember(newThree);
             return new ModelAndView(model, "success.hbs");
         }, new HandlebarsTemplateEngine());
 
