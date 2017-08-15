@@ -4,10 +4,6 @@
     text-align: center;
     width: 100%;
 }
-body {
-    background-image: url("../images/team.jpg");
-    background-repeat: no repeat;
-    }
 
 h1 {
     color: red;
@@ -19,6 +15,6 @@ h1 {
 }
 
 .amazing {
-    color: white;
+    color: black;
     font-size: 20px;
 }

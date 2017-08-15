@@ -5,14 +5,12 @@
     {{#if teams}}
         {{#each teams }}
          <div class="emphasized well">
-            <p>Team {{id}}:</p>
-               <ul>
-                   <li>{{name}}</li>
-                   <li>{{description}}</li>
-                   <li>Created At: {{createdAt}}</li>
-               </ul>
+            <p>Team {{name}}:</p>
 
-            <p>{{ name }} <a href="/teams/{{id}}">read more...</a></p>
+               <p>{{name}}</p>
+               <p>{{description}}</p>
+               <p>Created At: {{createdAt}}</p>
+               <p>{{ name }} <a href="/teams/{{id}}">read more...</a></p>
          </div>
         {{/each}}
     {{else}}
